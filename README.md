@@ -1,24 +1,55 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Users Table
 
-Things you may want to cover:
+| Column             | Type   | Options     |
+|--------------------|--------|-------------|
+| id                 | integer| null: false, primary key |
+| username           | string | null: false |
+| email              | string | null: false, unique: true |
+| password | string | null: false |
 
-* Ruby version
+## Associations
+- has_many :items
+- has_many :transactions, foreign_key: :buyer_id
 
-* System dependencies
+# Items Table
 
-* Configuration
+| Column       | Type       | Options                       |
+|--------------|------------|-------------------------------|
+| id           | integer    | null: false, primary key      |
+| name         | string     | null: false                   |
+| description  | text       | null: false                   |
+| price        | decimal    | null: false                   |
+| user_id      | integer    | null: false, foreign_key: true|
 
-* Database creation
+## Associations
+- belongs_to :user
+- has_one :transaction
 
-* Database initialization
+# Transactions Table
 
-* How to run the test suite
+| Column     | Type       | Options                        |
+|------------|------------|--------------------------------|
+| id         | integer    | null: false, primary key       |
+| item_id    | integer    | null: false, foreign_key: true |
+| buyer_id   | integer    | null: false, foreign_key: true |
+| created_at | datetime   | null: false                    |
 
-* Services (job queues, cache servers, search engines, etc.)
+## Associations
+- belongs_to :item
+- belongs_to :buyer, class_name: 'User', foreign_key: :buyer_id
+- has_one :shipping_info
 
-* Deployment instructions
+# ShippingInfo Table
 
-* ...
+| Column        | Type       | Options                        |
+|---------------|------------|--------------------------------|
+| id            | integer    | null: false, primary key       |
+| transaction_id| integer    | null: false, foreign_key: true |
+| address       | string     | null: false                    |
+| zip_code      | string     | null: false                    |
+| phone_number  | string     | null: false                    |
+
+## Associations
+- belongs_to :transaction
