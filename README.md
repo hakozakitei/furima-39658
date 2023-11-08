@@ -7,10 +7,19 @@
 | username           | string | null: false |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false |
+|nickname | string | null: false |
+|first_name | string | null: false |
+|last_name | string | null: false |
+|first_name_kana | string | null: false |
+|last_name_kana | string | null: false |
+|birth_date | date | null: false |
+
+
+
 
 ## Associations
-- has_many :items
-- has_many :transactions
+- has_many :item
+- has_many :purchase
 
 # Items Table
 
@@ -20,16 +29,16 @@
 | description  | text       | null: false                   |
 | price        | integer    | null: false                   |
 | user         | references | null: false, foreign_key: true|
-| category	   |references	    | null: false                   |
-| condition	   |references	    | null: false                   |
-| shipping_fee_burden|references	| null: false               |
-| shipping_origin	   |references  |	null: false               |
-| shipping_days	     |references  | null: false               |
+| category_id	   |integer	    | null: false                   |
+| condition_id	   |integer	    | null: false                   |
+| shipping_fee_burden_id|integer	| null: false               |
+| shipping_origin_id	   |integer  |	null: false               |
+| shipping_days_id     |integer  | null: false               |
 
 
 ## Associations
 - belongs_to :user
-- has_one :transaction
+- has_one :purchase
 
 # Purchases Table
 
@@ -37,7 +46,7 @@
 |------------|------------|--------------------------------|
 | item       | references | null: false, foreign_key: true |
 | user       | references | null: false, foreign_key: true |
-| created_at | datetime   | null: false                    |
+
 
 ## Associations
 - belongs_to :item
@@ -48,13 +57,14 @@
 
 | Column        | Type       | Options                        |
 |---------------|------------|--------------------------------|
-| purchases     | references | null: false, foreign_key: true |
-| address       | string     | null: false                    |
-| zip_code      | string     | null: false                    |
+| purchases_id     | references | null: false, foreign_key: true |
+| postal_code      | string     | null: false                    |
 | phone_number  | string     | null: false                    |
-|recipient_name	|string	     |null: false                     |
-|shipping_origin|references  |　　　　　　                      |
-|shipping_duration|	integer	 |null: false                     |
+|shipping_origin_id  |integer	     |null: false                     |
+|city           |string      |　　　　　　                      |
+|address         |	string	 |null: false                     |
+|building_name   |	string   |                                |
+
 
 ## Associations
-- belongs_to :transaction
+- belongs_to :purchase
