@@ -7,7 +7,6 @@
 | username           | string | null: false |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false |
-|nickname | string | null: false |
 |first_name | string | null: false |
 |last_name | string | null: false |
 |first_name_kana | string | null: false |
@@ -18,8 +17,8 @@
 
 
 ## Associations
-- has_many :item
-- has_many :purchase
+- has_many :items
+- has_many :purchases
 
 # Items Table
 
@@ -57,7 +56,7 @@
 
 | Column        | Type       | Options                        |
 |---------------|------------|--------------------------------|
-| purchases_id     | references | null: false, foreign_key: true |
+| purchase_id    | references | null: false, foreign_key: true |
 | postal_code      | string     | null: false                    |
 | phone_number  | string     | null: false                    |
 |shipping_origin_id  |integer	     |null: false                     |
