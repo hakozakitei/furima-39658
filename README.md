@@ -32,7 +32,7 @@
 | condition_id	   |integer	    | null: false                   |
 | shipping_fee_burden_id|integer	| null: false               |
 | shipping_origin_id	   |integer  |	null: false               |
-| shipping_days_id     |integer  | null: false               |
+| shipping_day_id     |integer  | null: false               |
 
 
 ## Associations
@@ -56,11 +56,11 @@
 
 | Column        | Type       | Options                        |
 |---------------|------------|--------------------------------|
-| purchase_id    | references | null: false, foreign_key: true |
+| purchase　    | references | null: false, foreign_key: true |
 | postal_code      | string     | null: false                    |
 | phone_number  | string     | null: false                    |
 |shipping_origin_id  |integer	     |null: false                     |
-|city           |string      |　　　　　　                      |
+|city           |string      |null: false　　　　　                      |
 |address         |	string	 |null: false                     |
 |building_name   |	string   |                                |
 
