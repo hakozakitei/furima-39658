@@ -68,7 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
-    bcrypt (3.1.19)
+    bcrypt (3.1.20)
     bindex (0.8.1)
     bootsnap (1.17.0)
       msgpack (~> 1.2)
@@ -84,7 +84,7 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
-    date (3.3.3)
+    date (3.3.4)
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
@@ -101,6 +101,8 @@ GEM
     factory_bot_rails (6.4.0)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
+    faker (3.2.2)
+      i18n (>= 1.8.11, < 2)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -110,13 +112,13 @@ GEM
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
     io-console (0.6.0)
-    irb (1.8.3)
+    irb (1.9.0)
       rdoc
       reline (>= 0.3.8)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    loofah (2.21.4)
+    loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
     mail (2.8.1)
@@ -131,28 +133,26 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     mysql2 (0.5.5)
-    net-imap (0.4.4)
+    net-imap (0.4.5)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.1)
+    net-protocol (0.2.2)
       timeout
     net-smtp (0.4.0)
       net-protocol
-    nio4r (2.5.9)
-    nokogiri (1.15.4-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.15.4-x86_64-linux)
+    nio4r (2.6.0)
+    nokogiri (1.15.5-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (1.5.4)
     psych (5.1.1.1)
       stringio
-    public_suffix (5.0.3)
+    public_suffix (5.0.4)
     puma (5.6.7)
       nio4r (~> 2.0)
-    racc (1.7.2)
+    racc (1.7.3)
     rack (2.2.8)
     rack-test (2.1.0)
       rack (>= 1.3)
@@ -185,10 +185,10 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.1.0)
-    rdoc (6.5.0)
+    rdoc (6.6.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
-    reline (0.3.9)
+    reline (0.4.0)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -225,9 +225,9 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
-    stringio (3.0.8)
+    stringio (3.0.9)
     thor (1.3.0)
-    timeout (0.4.0)
+    timeout (0.4.1)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -255,7 +255,6 @@ GEM
 
 PLATFORMS
   x86_64-darwin-22
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -263,6 +262,7 @@ DEPENDENCIES
   debug
   devise
   factory_bot_rails
+  faker
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
