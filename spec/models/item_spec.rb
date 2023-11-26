@@ -82,5 +82,16 @@ describe '商品の保存' do
       @item.valid?
       expect(@item.errors.full_messages).to include("Image can't be blank")
     end
+    it '価格に半角数字以外が含まれている場合は出品できない' do
+      @item.price = '1000円' # 半角数字以外を含む価格
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
+    end
+
+    it 'userが紐付いていなければ出品できない' do
+      @item.user = nil
+      @item.valid?
+      expect(@item.errors.full_messages).to include("User must exist")
+    end
   end
 end
