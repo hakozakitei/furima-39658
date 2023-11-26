@@ -6,7 +6,8 @@ FactoryBot.define do
     condition_id { 2 } 
     shipping_fee_burden_id { 2 } 
     shipping_origin_id { 2 } 
-    shipping_day_id { 2 } 
+    shipping_day_id { 2 }
+    price { 1000 }
     association :user
 
     after(:build) do |item|
