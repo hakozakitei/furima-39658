@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
-  #  before_action :set_item, only: [:edit, :update]
-  #  before_action :redirect_unless_author, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create,:edit, :update]
+  before_action :set_item, only: [:edit, :update]
+  before_action :redirect_unless_author, only: [:edit, :update]
 
 
   def index
@@ -30,13 +30,14 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     end
     
-   # def update 
-   #  if @item.update(item_params)
-   #    redirect_to item_path(@item)
-   #   else
-   #   render :edit 
-   #   end
-   # end
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   private
 
