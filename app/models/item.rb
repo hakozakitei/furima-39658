@@ -9,6 +9,10 @@ class Item < ApplicationRecord
   belongs_to :shipping_day
   has_one :purchase
 
+  def sold_out?
+    Purchase.exists?(item_id: self.id)
+  end
+
   # バリデーション
   validates :name, :description, :price, :image, presence: true
   validates :category_id, :condition_id, :shipping_fee_burden_id, :shipping_origin_id, :shipping_day_id, numericality: { other_than: 1 }
