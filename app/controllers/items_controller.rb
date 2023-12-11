@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create,:edit, :update,:destroy]
   before_action :set_item, only: [:show, :edit, :update,:destroy]
   before_action :redirect_unless_author, only: [:edit, :update, :destroy]
+  before_action :redirect_if_sold_out, only: [:edit, :update]
 
 
   def index
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to item_path(@item)
     else
-      render :edit, status: :unprocessable_entity
+      render :edit,status: :unprocessable_entity
     end
   end
 
@@ -54,4 +55,11 @@ class ItemsController < ApplicationController
   def redirect_unless_author
     redirect_to root_path unless current_user == @item.user
   end
+
+  def redirect_if_sold_out
+    if @item.purchase.present?
+      redirect_to root_path
+    end
+  end
+  
 end

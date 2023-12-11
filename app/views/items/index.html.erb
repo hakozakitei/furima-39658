@@ -135,11 +135,11 @@
           <%= image_tag item.image, class: "item-img" %>
 
         <%# 売り切れ表示の削除またはコメントアウト %>
-        <%# if item.sold_out? %>
-        <%#   <div class='sold-out'> %>
-        <%#     <span>Sold Out!!</span> %>
-        <%#   </div> %>
-        <%# end %>
+        <%  if item.sold_out? %>
+          <div class='sold-out'> 
+           <span>Sold Out!!</span> 
+          </div>
+         <% end %>
 
         </div>
         <div class='item-info'>
