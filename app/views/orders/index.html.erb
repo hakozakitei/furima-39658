@@ -30,18 +30,9 @@
       </p>
     </div>
     <%# /支払額の表示 %> 
-    <% if @order_form.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@order_form.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-    <ul>
-    <% @order_form.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-<%= include_gon %>
+<%= include_gon %> 
+    <%= render 'shared/error_messages', model: @order_form %>
     <%= form_with model: @order_form, url: item_orders_path(@item),data: { turbo: false }, id: 'charge-form', class: 'transaction-form-wrap', local: true do |f| %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
