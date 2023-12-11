@@ -11,6 +11,7 @@ class OrderForm
   validates :shipping_origin_id, numericality: { other_than: 0, message: "can't be blank" }
   validates :city
   validates :address
+  end
 
 
   def save
